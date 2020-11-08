@@ -10,7 +10,7 @@ class MinimaxTest {
     @Test
     void when_computerMakeMove_BoardPositionReturned() {
         TicTacToeBoard gameBoard = new TicTacToeBoard();
-        Minimax computer = new Minimax();
+        Minimax computer = new Minimax(3, GameResult.X);
         BoardPosition boardPosition = computer.minimax(gameBoard, 3, 12);
 
         boolean isGreaterThanZero = false;
@@ -26,8 +26,8 @@ class MinimaxTest {
     @Test
     void playAGameWith2Minimax() {
         TicTacToeBoard gameBoard = new TicTacToeBoard();
-        Minimax computer = new Minimax();
-        Minimax opponent = new Minimax();
+        Minimax computer = new Minimax(3, GameResult.X);
+        Minimax opponent = new Minimax(3, GameResult.O);
         BoardPosition boardPosition;
         boolean isOpponentTurn = true;
         boolean gameState = true;

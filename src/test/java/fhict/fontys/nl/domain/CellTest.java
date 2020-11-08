@@ -10,15 +10,15 @@ class CellTest {
     void SetSymbolTest() {
         cell.setSymbol(false);
 
-        assertEquals(cell.getSymbol().get(0), false);
-        assertEquals(cell.isEmpty().get(0), false);
+        assertEquals(cell.getSymbol(), false);
+        assertEquals(cell.isEmpty(), false);
     }
 
     @Test
     void getSymbol() {
-        assertEquals(cell.getSymbol().get(0), false);
+        assertEquals(cell.getSymbol(), false);
         cell.setSymbol(true);
-        assertEquals(cell.getSymbol().get(0), true);
+        assertEquals(cell.getSymbol(), true);
     }
 
 }

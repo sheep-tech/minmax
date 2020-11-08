@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="fhict.fontys.nl.domain.MinimaxTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-08T01:17:48" hostname="LAPTOP-I9DSV66L" time="0.149">
+  <properties/>
+  <testcase name="playAGameWith2Minimax()" classname="fhict.fontys.nl.domain.MinimaxTest" time="0.149"/>
+  <system-out><![CDATA[
+									Tic Tac Toe Game Board
+
+										 	1	2	3	
+										1	_	_	_	
+										2	_	O	_	
+										3	_	_	_	
+No winner at the moment, continue to play!
+
+									Tic Tac Toe Game Board
+
+										 	1	2	3	
+										1	X	_	_	
+										2	_	O	_	
+										3	_	_	_	
+No winner at the moment, continue to play!
+
+									Tic Tac Toe Game Board
+
+										 	1	2	3	
+										1	X	_	_	
+										2	_	O	_	
+										3	_	_	O	
+No winner at the moment, continue to play!
+
+									Tic Tac Toe Game Board
+
+										 	1	2	3	
+										1	X	X	_	
+										2	_	O	_	
+										3	_	_	O	
+No winner at the moment, continue to play!
+
+									Tic Tac Toe Game Board
+
+										 	1	2	3	
+										1	X	X	_	
+										2	_	O	_	
+										3	_	O	O	
+No winner at the moment, continue to play!
+
+									Tic Tac Toe Game Board
+
+										 	1	2	3	
+										1	X	X	X	
+										2	_	O	_	
+										3	_	O	O	
+Computer Won! The winner is X
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
