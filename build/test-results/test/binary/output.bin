@@ -2,47 +2,55 @@
 !									Tic Tac Toe Game Board
 
 										 	1	2	3	
-										1	_	_	_	
-										2	_	O	_	
+										1	O	_	_	
+										2	_	_	_	
 										3	_	_	_	
 ,No winner at the moment, continue to play!
 
 !									Tic Tac Toe Game Board
 
 										 	1	2	3	
-										1	X	_	_	
-										2	_	O	_	
+										1	O	X	_	
+										2	_	_	_	
 										3	_	_	_	
 ,No winner at the moment, continue to play!
 
 !									Tic Tac Toe Game Board
 
 										 	1	2	3	
-										1	X	_	_	
-										2	_	O	_	
-										3	_	_	O	
+										1	O	X	O	
+										2	_	_	_	
+										3	_	_	_	
 ,No winner at the moment, continue to play!
 
 !									Tic Tac Toe Game Board
 
 										 	1	2	3	
-										1	X	X	_	
-										2	_	O	_	
-										3	_	_	O	
+										1	O	X	O	
+										2	X	_	_	
+										3	_	_	_	
 ,No winner at the moment, continue to play!
 
 !									Tic Tac Toe Game Board
 
 										 	1	2	3	
-										1	X	X	_	
-										2	_	O	_	
-										3	_	O	O	
+										1	O	X	O	
+										2	X	O	_	
+										3	_	_	_	
 ,No winner at the moment, continue to play!
 
 !									Tic Tac Toe Game Board
 
 										 	1	2	3	
-										1	X	X	X	
-										2	_	O	_	
-										3	_	O	O	
-Computer Won! The winner is X
+										1	O	X	O	
+										2	X	O	X	
+										3	_	_	_	
+,No winner at the moment, continue to play!
+
+!									Tic Tac Toe Game Board
+
+										 	1	2	3	
+										1	O	X	O	
+										2	X	O	X	
+										3	O	_	_	
+The winner is O

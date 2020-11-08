@@ -21,7 +21,7 @@ public class Minimax {
                 if (board.getBoard()[i][j].isEmpty()) {
                     // Machine turn
                     board.playAtCell(i+1, j+1, this.symbolValue, true);
-                    int score = recursiveMinimax(board, depth-1, false);
+                    int score = recursiveMinimax(board, depth-1, Integer.MIN_VALUE, Integer.MAX_VALUE,false);
                     board.resetCell(i+1, j+1);
 
                     if (score > bestScore) {
@@ -35,72 +35,92 @@ public class Minimax {
         return bestPosition;
     }
 
-    public int recursiveMinimax(TicTacToeBoard board, int depth, boolean isMaximizing) {
+    public int recursiveMinimax(TicTacToeBoard board, int depth, int alpha,int beta, boolean isMaximizing) {
         // evaluate this state's score
         int result = evaluateBoardScore(board);
 
-        if (result != Integer.MIN_VALUE /*|| depth == 0*/) {
+        if (result != Integer.MIN_VALUE || depth == 0) {
             return result;
         }
 
-        // machine
         int bestScore;
+        // machine
         if (isMaximizing) {
-            bestScore = Integer.MIN_VALUE;
-            for (int i = 0; i < this.boardSize; i++) {
-                for (int j = 0; j < this.boardSize; j++) {
-                    // check if spot is empty
-                    if (board.getBoard()[i][j].isEmpty()) {
-                        // Machine turn
-                        board.playAtCell(i+1, j+1, this.symbolValue, true);
-                        int score = recursiveMinimax(board, depth-1, false);
-                        board.resetCell(i+1, j+1);
-
-                        bestScore = Integer.max(score, bestScore);
-                    }
-                }
-            }
+            bestScore = max(board, depth, alpha, beta);
         }
         // opponent
         else {
-            bestScore = Integer.MAX_VALUE;
-            for (int i = 0; i < this.boardSize; i++) {
-                for (int j = 0; j < this.boardSize; j++) {
-                    // check if spot is empty
-                    if (board.getBoard()[i][j].isEmpty()) {
-                        // opponent turn, so flip symbol value
-                        board.playAtCell(i+1, j+1, !this.symbolValue, true);
-                        int score = recursiveMinimax(board, depth-1, true);
-                        board.resetCell(i+1, j+1);
-
-                        bestScore = Integer.min(score, bestScore);
-                    }
-                }
-            }
+            bestScore = min(board, depth, alpha, beta);
         }
+
         return bestScore;
     }
 
-    private int evaluateBoardScore(TicTacToeBoard board) {
+    private int max(TicTacToeBoard board, int depth, int alpha,int beta) {
+        int bestScore = Integer.MIN_VALUE;
+        for (int i = 0; i < this.boardSize; i++) {
+            for (int j = 0; j < this.boardSize; j++) {
+                // check if spot is empty
+                if (board.getBoard()[i][j].isEmpty()) {
+                    // Machine turn
+                    board.playAtCell(i+1, j+1, this.symbolValue, true);
+                    int score = recursiveMinimax(board, depth-1, alpha, beta,false);
+                    board.resetCell(i+1, j+1);
+
+                    bestScore = Integer.max(score, bestScore);
+                    alpha = Integer.max(alpha, score);
+
+                    if (beta <= alpha)
+                        break;
+                }
+            }
+        }
+
+        return bestScore;
+    }
+
+    private int min(TicTacToeBoard board, int depth, int alpha,int beta) {
+        int bestScore = Integer.MAX_VALUE;
+        for (int i = 0; i < this.boardSize; i++) {
+            for (int j = 0; j < this.boardSize; j++) {
+                // check if spot is empty
+                if (board.getBoard()[i][j].isEmpty()) {
+                    // opponent turn, so flip symbol value
+                    board.playAtCell(i+1, j+1, !this.symbolValue, true);
+                    int score = recursiveMinimax(board, depth-1, alpha, beta,true);
+                    board.resetCell(i+1, j+1);
+
+                    bestScore = Integer.min(score, bestScore);
+                    beta = Integer.min(beta, score);
+
+                    if (beta <= alpha)
+                        break;
+                }
+            }
+        }
+
+        return bestScore;
+    }
+
+    public int evaluateBoardScore(TicTacToeBoard board) {
         int boardScore = 0;
 
         GameResult boardResult =  TicTacToeBoard.checkWinner(board);
 
         switch (boardResult) {
-            case X:
-                boardScore = 100;
-                break;
-
-            case O:
-                boardScore = -100;
-                break;
-
             case Tie:
                 boardScore = 0;
                 break;
 
             case Playing:
                 boardScore = Integer.MIN_VALUE;
+                break;
+
+            default:
+                if (boardResult == this.symbol)
+                    boardScore = 100;
+                else
+                    boardScore = -100;
                 break;
         }
 

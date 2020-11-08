@@ -127,7 +127,7 @@ public class TicTacToeBoard implements IPlayerController {
         return false;
     }
 
-    // this method won't minus available cells to play
+    // this method is used by minimax search algo and won't minus available cells to play
     @Override
     public boolean playAtCell(int row, int col, boolean symbol, boolean bot) {
 

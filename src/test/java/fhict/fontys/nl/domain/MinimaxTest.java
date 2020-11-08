@@ -2,7 +2,6 @@ package fhict.fontys.nl.domain;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,8 +15,10 @@ class MinimaxTest {
         boolean isGreaterThanZero = false;
 
         // make sure the position is not 0
-        if (boardPosition.row > 0 && boardPosition.column > 0)
+        if (boardPosition.row > 0 && boardPosition.column > 0) {
             isGreaterThanZero = true;
+            System.out.println(boardPosition.row + " " + boardPosition.column);
+        }
 
         assertNotNull(boardPosition);
         assertTrue(isGreaterThanZero);
