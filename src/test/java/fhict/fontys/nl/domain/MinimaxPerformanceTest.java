@@ -8,9 +8,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class MinimaxPerformanceTest {
     @Test
     void minimaxSingleIterationPerformanceTest() {
-        TicTacToeBoard gameBoard = new TicTacToeBoard();
-        Minimax computer = new Minimax(3, GameResult.X);
-        BoardPosition boardPosition = computer.minimax(gameBoard, 3, 12);
+        int boardSize = 4;
+
+        TicTacToeBoard gameBoard = new TicTacToeBoard(boardSize);
+        Minimax computer = new Minimax(boardSize, GameResult.X);
+
+        long start = System.currentTimeMillis();
+
+        BoardPosition boardPosition = computer.minimax(gameBoard, boardSize, 12);
+
+        long duration = System.currentTimeMillis() - start;
+        System.out.println("Time execution: " + duration + "ms with board Size: " + boardSize);
 
         boolean isGreaterThanZero = false;
 
@@ -19,6 +27,8 @@ public class MinimaxPerformanceTest {
             isGreaterThanZero = true;
             System.out.println(boardPosition.row + " " + boardPosition.column);
         }
+
+
 
         assertNotNull(boardPosition);
         assertTrue(isGreaterThanZero);

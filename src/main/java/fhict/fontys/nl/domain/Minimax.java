@@ -102,7 +102,7 @@ public class Minimax {
         return bestScore;
     }
 
-    public int evaluateBoardScore(TicTacToeBoard board) {
+    private int evaluateBoardScore(TicTacToeBoard board) {
         int boardScore = 0;
 
         GameResult boardResult =  TicTacToeBoard.checkWinner(board);

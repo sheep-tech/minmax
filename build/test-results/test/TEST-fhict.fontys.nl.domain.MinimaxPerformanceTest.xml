@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="fhict.fontys.nl.domain.MinimaxPerformanceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-08T13:17:38" hostname="LAPTOP-I9DSV66L" time="19.085">
+  <properties/>
+  <testcase name="minimaxSingleIterationPerformanceTest()" classname="fhict.fontys.nl.domain.MinimaxPerformanceTest" time="19.085"/>
+  <system-out><![CDATA[Time execution: 19070ms with board Size: 4
+1 1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
